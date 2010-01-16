@@ -1,0 +1,1 @@
+require 'associated_with'
