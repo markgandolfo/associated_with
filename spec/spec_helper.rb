@@ -11,6 +11,9 @@ require 'associated_with'
 require 'spec'
 require 'factory_girl'
 
+## Some versions of factory_girl doesn't load the factories... 
+require 'factories.rb'
+
 # Define time zone before loading test_helper
 zone = "UTC"
 Time.zone = zone
