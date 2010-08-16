@@ -2,6 +2,8 @@ module AssociatedWith
   def associated_with? object
     class_name = object.class.to_s.downcase
 
+    a = self.class.reflect_on_association(class_name.to_sym)
+
     if self.respond_to?(class_name.pluralize)
       association = class_name.pluralize
       return self.__send__(association).include?(object)
