@@ -1,5 +1,13 @@
-require 'spec/rake/spectask'
-require 'rake/rdoctask'
+begin
+  require 'spec/rake/spectask'
+  require 'rake/rdoctask'
+rescue LoadError
+  puts <<-EOS
+  Missing development dependencies:
+    gem install rspec factory_girl sqlite3-ruby activerecord
+  EOS
+  exit 1
+end
 
 desc 'Default: run unit tests.'
 task :default => :spec
